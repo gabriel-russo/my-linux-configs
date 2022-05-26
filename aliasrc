@@ -1,0 +1,37 @@
+# Grep colors
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
+alias fgrep='fgrep --color=always'
+alias grep='grep --color=auto'
+
+# System
+alias ls='ls --color=auto'
+alias ssh='kitty +kitten ssh'
+alias backup='tar -cvf backup-$(date +%d-%m-%Y) -Ipixz'
+alias rm='rm -v'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias sha='shasum -a 256'
+alias htop='btop'
+
+# System package managing
+alias update-src='bash $HOME/void-packages/xbps-src -v -j$(nproc) update-sys'
+alias update='sudo xbps-install -Su && flatpak update -y'
+alias query='sudo xbps-query -Rs'
+alias pull-src='git --git-dir=$HOME/void-packages/.git pull'
+
+# Network
+alias myip='curl ipinfo.io/ip'
+
+# Vim
+alias vim='nvim'
+alias vimconfig='nvim $HOME/.config/nvim/init.vim'
+
+# Programs
+alias updog='$HOME/.local/bin/updog'
+alias notepadqq='pad'
+alias pycharm='$HOME/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/*/bin/pycharm.sh'
+alias webstorm='$HOME/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/*/bin/webstorm.sh'
+alias phpstorm='$HOME/.local/share/JetBrains/Toolbox/apps/PhpStorm/ch-0/*/bin/phpstorm.sh'
+alias clion='$HOME/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/*/bin/clion.sh'
+
