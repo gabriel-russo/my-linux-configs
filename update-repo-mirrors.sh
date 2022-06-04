@@ -18,7 +18,10 @@
 # License: Unlicense
 
 echo "Starting script..."
-scaped_url="${1//\//\\\/}"
+
+URL="${1%%\/}" # Get rid of last slash
+
+scaped_url=$(echo ${URL} | sed 's/\//\\\//g')
 
 echo
 read -p "Modifying all URLs with: ${1} , Continue? [y/n]: " continue
@@ -48,4 +51,3 @@ do
 		echo
 	fi
 done
-
