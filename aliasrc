@@ -13,14 +13,12 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias sha='shasum -a 256'
 alias htop='btop'
-alias new-alias='vim $HOME/.config/aliasrc'
+alias aliasconfig='vim $HOME/.config/aliasrc'
 
 # System package managing
-alias update-src='bash $HOME/void-packages/xbps-src -j7 update-sys'
 alias update='sudo xbps-install -Su && flatpak update -y'
 alias query='sudo xbps-query -Rs'
 alias xinstall='sudo xbps-install -S'
-alias pull-src='git --git-dir=$HOME/void-packages/.git pull'
 
 # Network
 alias myip='curl ipinfo.io/ip'
