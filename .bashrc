@@ -9,8 +9,11 @@ test -r $d && eval "$(dircolors $d)"
 # Loading aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
-# Functions
-source /usr/share/git/git-prompt.sh
+# Local binaries PATH
+export PATH=$PATH:$HOME/.local/bin
+
+# Git for bash functions
+[ -e /usr/share/git/git-prompt.sh ] && source /usr/share/git/git-prompt.sh
 
 # Colors
 blk='\[\033[01;30m\]'   # Black
@@ -25,7 +28,11 @@ clr='\[\033[00m\]'      # Reset
 
 # PS1
 function bash_prompt(){
-	PS1=''${blu}'$(__git_ps1 " (%s)")'${pur}' \W'${grn}' \$ '${clr}
+	if [ -e /usr/share/git/git-prompt.sh ]; then
+		PS1=''${blu}'$(__git_ps1 " (%s)")'${pur}' \W'${grn}' \$ '${clr}
+	else
+		PS1=''${pur}' \W'${grn}' \$ '${clr}
+	fi
 }
 
 bash_prompt
