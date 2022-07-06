@@ -55,4 +55,13 @@
 	<patterns>*.iso;*.ISO</patterns>
 	<other-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Git clone</name>
+	<unique-id>1657150184625938-1</unique-id>
+	<command>git clone $(yad --geometry=350x100 --title &quot;Git clone&quot; --button=Clonar:0 --button=Cancelar:1 --entry-label &quot;Insira a URL&quot; --entry)</command>
+	<description>Inserir URL para clonar</description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
 </actions>
