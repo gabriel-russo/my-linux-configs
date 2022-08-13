@@ -13,7 +13,7 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias sha='shasum -a 256'
 alias htop='btop'
-alias aliasconfig='vim $HOME/.config/aliasrc'
+alias aliasconfig='sudo vim $HOME/.config/aliasrc'
 
 # System package managing
 alias update='sudo xbps-install -Su && flatpak update -y'
@@ -34,4 +34,5 @@ alias pycharm='$HOME/.local/share/JetBrains/Toolbox/apps/PyCharm-P/ch-0/*/bin/py
 alias webstorm='$HOME/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/*/bin/webstorm.sh'
 alias phpstorm='$HOME/.local/share/JetBrains/Toolbox/apps/PhpStorm/ch-0/*/bin/phpstorm.sh'
 alias clion='$HOME/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/*/bin/clion.sh'
+alias yt='youtube-dl'
 
