@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Shell script para ligar o libvirtd para o QEMU
+
+if docker --version &> /dev/null; then
+	echo "Docker - Instalação OK"
+else
+	echo "Primeiro, instale o docker."
+	exit 1
+fi
+
+if [ $(sudo systemctl is-active docker) = "inactive" ]; then
+	
+	sudo systemctl start docker
+
+	echo "docker daemon ativado e pronto para uso!!"
+else
+	echo "docker daemon já está ativo!!";
+	exit 1;
+fi
+
