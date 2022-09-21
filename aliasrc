@@ -11,14 +11,15 @@ alias backup='tar -cvf backup-$(date +%d-%m-%Y) -Ipixz'
 alias rm='rm -v'
 alias cp='cp -iv'
 alias mv='mv -iv'
+alias mkdir='mkdir -pv'
 alias sha='shasum -a 256'
 alias htop='btop'
-alias aliasconfig='sudo vim $HOME/.config/aliasrc'
+alias aliasconfig='sudo nvim $HOME/.config/aliasrc'
 
 # System package managing
-alias update='sudo xbps-install -Su && flatpak update -y'
-alias query='sudo xbps-query -Rs'
-alias xinstall='sudo xbps-install -S'
+alias update='sudo pacman -Su'
+alias query='sudo pacman -Ss'
+alias pacman='sudo pacman'
 
 # Network
 alias myip='curl ipinfo.io/ip'
