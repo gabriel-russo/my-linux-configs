@@ -1,48 +1,48 @@
-# .bashrc
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples
+# Modified: 2024/10/28
+#
+# Recomended to merge it with your dist default .bashrc
+#
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
-d=.dircolors
-test -r $d && eval "$(dircolors $d)"
+# Colors
+black='\[\033[01;30m\]'   # Black
+red='\[\033[01;31m\]'     # Red
+green='\[\033[01;32m\]'   # Green
+yellow='\[\033[01;33m\]'  # Yellow
+blue='\[\033[01;34m\]'    # Blue
+purple='\[\033[01;35m\]'  # Purple
+cyan='\[\033[01;36m\]'    # Cyan
+white='\[\033[01;37m\]'   # White
+clr='\[\033[00m\]'        # Reset
 
-# Loading aliases
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
+# Git for bash functions
+[ -e /opt/git-completion/git-prompt.sh ] && source /opt/git-completion/git-prompt.sh
+
+ps1_prefix='${debian_chroot:+($debian_chroot)}'
+base_ps1=''${green}'\u'${white}'@'${cyan}'\H '${purple}'at '${blue}'\W '${yellow}'[\$]'${clr}': '
+
+if [ -e /opt/git-completion/git-prompt.sh ]; then
+	PS1=''${debian_prefix}''${red}'$(__git_ps1 "(%s) ")'${base_ps1}''
+else
+	PS1=''${debian_prefix}''${base_ps1}''
+fi
 
 # Local binaries PATH
 export PATH=$PATH:$HOME/.local/bin
 
-# Git for bash functions
-[ -e /usr/share/git/git-prompt.sh ] && source /usr/share/git/git-prompt.sh
-
-# Colors
-blk='\[\033[01;30m\]'   # Black
-red='\[\033[01;31m\]'   # Red
-grn='\[\033[01;32m\]'   # Green
-ylw='\[\033[01;33m\]'   # Yellow
-blu='\[\033[01;34m\]'   # Blue
-pur='\[\033[01;35m\]'   # Purple
-cyn='\[\033[01;36m\]'   # Cyan
-wht='\[\033[01;37m\]'   # White
-clr='\[\033[00m\]'      # Reset
-
-# PS1
-function bash_prompt(){
-	if [ -e /usr/share/git/git-prompt.sh ]; then
-		PS1=''${blu}'$(__git_ps1 " (%s)")'${pur}' \W'${grn}' \$ '${clr}
-	else
-		PS1=''${pur}' \W'${grn}' \$ '${clr}
-	fi
-}
-
-bash_prompt
-
-# Bash history config
-HISTCONTROL=ignoredups
-HISTSIZE=1000
-HISTFILESIZE=1000
-shopt -s histappend
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
