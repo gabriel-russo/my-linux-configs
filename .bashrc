@@ -1,10 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples
-# Modified: 2024/10/28
-#
-# Recomended to merge it with your dist default .bashrc
-#
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -21,11 +14,6 @@ purple='\[\033[01;35m\]'  # Purple
 cyan='\[\033[01;36m\]'    # Cyan
 white='\[\033[01;37m\]'   # White
 clr='\[\033[00m\]'        # Reset
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
